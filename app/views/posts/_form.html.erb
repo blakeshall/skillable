@@ -1,0 +1,42 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group mb-2 mb-sm-0">
+    <%= form.text_field :title, id: :post_title, placeholder: 'Title' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select(:category) do %>
+      <%= options_for_select(@categories) %>
+    <% end %>
+  </div>
+
+  <div class="input-group mb-2 mb-sm-0">
+    <%= form.text_area :description, id: :post_description, placeholder: 'Description' %>
+  </div>
+
+  <div class="input-group mb-2 mb-sm-0">
+    <div class="input-group-addon">$</div>
+    <%= form.text_field :price, id: :post_price, placeholder: '0.00', class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :availability %>
+    <%= form.text_field :availability, id: :post_availability %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,1 +1,15 @@
 <h1>Skillable</h1>
+
+<h2>Latest Lessons</h2>
+<table class='table'>
+  <tbody>
+    <%- @posts.each do |post| %>
+      <tr>
+        <th scope='row'><%= post.title %></th>
+        <td><%= post.description%></td>
+        <td><%= number_to_currency(post.price) %></td>
+        <td><%= post.availability%></td>
+      </tr>
+    <%- end %>
+  </tbody>
+</table>
