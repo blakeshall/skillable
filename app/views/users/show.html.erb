@@ -1,31 +1,28 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
-  <div class="col-mid-12">
-    <h1>Lessons</h1>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-mid-12">
-    <ul class="list-inline">
-      <li class="list-inline-item"><h5>Categories:</h5></li>
-      <li class="list-inline-item"><%= link_to "Clear", posts_path %></li>
-      <% Post::CATEGORIES.each do |category| %>
-        <li class="list-inline-item"><%= link_to "#{category}", posts_path(filter: category) %></li>
-      <% end %>
-    </ul>
+  <div class="col-md-12">
+    <h1><%= @user.display_name %></h1>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-mid-12">
+  <div class="col-md-12">
+    <h3>Bio:</h3>
+    <p><%= @user.bio %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Lessons:</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <table class='table'>
       <thead>
         <tr>
           <th>Title</th>
-          <th>Instructor</th>
           <th>Description</th>
           <th>Category</th>
           <th>Price</th>
@@ -34,13 +31,12 @@
       </thead>
 
       <tbody>
-        <% if @posts.empty? %>
-          <td>No lessons matching your criteria.</td>
+        <% if @user.posts.empty? %>
+          No classes posted.
         <% else %>
-          <% @posts.each do |post| %>
+          <% @user.posts.each do |post| %>
             <tr>
               <td><%= link_to(post.title, post_path(post)) %></td>
-              <td><%= link_to(post.user.display_name, user_path(post.user)) %></td>
               <td><%= post.description %></td>
               <td><%= post.category %></td>
               <td><%= number_to_currency(post.price) %></td>
