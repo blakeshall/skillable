@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-7">
           <ul class='list-inline'>
             <li class="list-inline-item"><h2 id="logo"><%= link_to('Skillable', root_path) %></h2></li>
             <li class="list-inline-item"><%= link_to('Lessons', posts_path) %></li>
@@ -35,10 +35,11 @@
           <%- end %>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
           <ul class='list-inline'>
           <%- if user_signed_in? %>
             <li class="list-inline-item"><%= link_to('Post a new lesson', new_post_path) %></li>
+            <li class="list-inline-item"><%= link_to('Profile Settings', profile_settings_path) %></li>
             <li class='list-inline-item'><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
           <%- else %>
             <li class='list-inline-item'><%= link_to('Login', new_user_session_path)  %></li>
