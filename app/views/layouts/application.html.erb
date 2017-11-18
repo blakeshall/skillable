@@ -8,6 +8,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style type="text/css">
+      #logo {
+        margin-right: 15px;
+      }
+    </style>
   </head>
 
   <body>
@@ -21,7 +27,7 @@
       <div class="row">
         <div class="col-md-9">
           <ul class='list-inline'>
-            <li class="list-inline-item"><%= link_to('Home', root_path) %></li>
+            <li class="list-inline-item"><h2 id="logo"><%= link_to('Skillable', root_path) %></h2></li>
           <%- if user_signed_in? %>
             <li class="list-inline-item"><%= link_to('Lessons', posts_path) %></li>
             <li class="list-inline-item"><%= link_to('Your Lessons', your_posts_path) %></li>

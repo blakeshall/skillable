@@ -11,32 +11,43 @@
     </div>
   <% end %>
 
-  <div class="input-group mb-2 mb-sm-0">
-    <%= form.text_field :title, id: :post_title, placeholder: 'Title' %>
+  <div class='form-group row'>
+    <label for="post_title" class="col-sm-2 col-form-label col-form-label-sm">Title</label>
+    <div class="col-sm-10">
+      <%= form.text_field :title, id: :post_title, placeholder: 'Title', class: 'form-control form-control-sm' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select(:category) do %>
-      <%= options_for_select(@categories) %>
-    <% end %>
+  <div class="form-group row">
+    <label for="post_category" class="col-sm-2 col-form-label col-form-label-sm">Category</label>
+    <div class="col-sm-10">
+      <%= form.select(:category, options_for_select(@categories), {}, class: "custom-select") %>
+    </div>
   </div>
 
-  <div class="input-group mb-2 mb-sm-0">
-    <%= form.text_area :description, id: :post_description, placeholder: 'Description' %>
+  <div class='form-group row'>
+    <label for="post_description" class="col-sm-2 col-form-label col-form-label-sm">Title</label>
+    <div class="col-sm-10">
+      <%= form.text_area :description, id: :post_description, placeholder: 'Description', class: 'form-control form-control-sm' %>
+    </div>
   </div>
 
-  <div class="input-group mb-2 mb-sm-0">
-    <div class="input-group-addon">$</div>
-    <%= form.text_field :price, id: :post_price, placeholder: '0.00', class: "form-control" %>
+  <div class='form-group row'>
+    <label for="post_title" class="col-sm-2 col-form-label col-form-label-sm">Title</label>
+    <div class="input-group col-sm-10">
+      <div class="input-group-addon">$</div>
+      <%= form.text_field :price, id: :post_price, placeholder: '0.00', class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :availability %>
-    <%= form.text_field :availability, id: :post_availability %>
+  <div class='form-group row'>
+    <label for="post_availability" class="col-sm-2 col-form-label col-form-label-sm">Availability</label>
+    <div class="col-sm-10">
+      <%= form.text_field :availability, id: :post_availability, placeholder: 'Availability', class: 'form-control form-control-sm' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, class: 'btn-primary' %>
   </div>
 <% end %>
