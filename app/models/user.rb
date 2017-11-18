@@ -5,10 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
+  has_many :requests
 
   mount_uploader :avatar, AvatarUploader
 
   def display_name
     "#{first_name} #{last_name}"
+  end
+
+  def requests_made
+    Request.where(requester_id: id)
   end
 end
