@@ -26,22 +26,20 @@
 
     <div class="row">
       <div class="col-md-12">
-        <%= link_to 'Request a lesson', new_request_path(post_id: @post.id, user_id: @post.user.id) %>
+        <%= button_to 'Request a lesson', new_request_path(post_id: @post.id, user_id: @post.user.id), class: 'btn btn-success' %>
       </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="row">
-      <div class="col-md-12">
-        <h3>About the Instructor:</h3>
-        <%= image_tag @post.user.avatar.url, size: "250x250" %>
-        <h4><%= @post.user.display_name %></h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <h5>Bio:</h5>
-        <p><%= @post.user.bio %></p>
+      <div class="col-md-6">
+        <div class="card" style="">
+          <%= image_tag @post.user.avatar.url, size: "250x250 ", class: 'card-img-top' %>
+          <div class="card-body">
+            <h4 class="card-title">About the Instructor</h4>
+            <p class="card-text"><%= @post.user.bio %></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
