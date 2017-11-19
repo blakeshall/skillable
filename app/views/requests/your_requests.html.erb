@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Requests for You</h1>
+<h1>Your Requests</h1>
 
 <table>
   <thead>
     <tr>
-      <th>From</th>
+      <th>To</th>
       <th>Message</th>
       <th colspan="1"></th>
     </tr>
@@ -14,7 +14,7 @@
   <tbody>
     <% @requests.each do |request| %>
       <tr>
-        <td><%= request.requester.display_name %></td>
+        <td><%= request.user.display_name %></td>
         <td><%= request.message %></td>
         <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

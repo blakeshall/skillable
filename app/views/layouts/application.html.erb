@@ -31,6 +31,8 @@
             <li class="list-inline-item"><%= link_to('Lessons', posts_path) %></li>
           <%- if user_signed_in? %>
             <li class="list-inline-item"><%= link_to('Your Lessons', your_posts_path) %></li>
+            <li class="list-inline-item"><%= link_to('Requests for You', requests_path) %></li>
+            <li class="list-inline-item"><%= link_to('Your Requests', your_requests_path) %></li>
           <%- else %>
           <%- end %>
           </ul>

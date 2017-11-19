@@ -4,7 +4,13 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
+    # Requests for your lessons
+    @requests = current_user.requests
+  end
+
+  def your_requests
+    # Requests you've made
+    @requests = current_user.requests_made
   end
 
   # GET /requests/1
@@ -14,7 +20,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-    @request = Request.new
+    @request = Request.new(post_id: params[:post_id], user_id: params[:user_id])
   end
 
   # GET /requests/1/edit
@@ -24,7 +30,8 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    @request = Request.new(request_params)
+    new_request_params = request_params.merge({requester_id: current_user.id})
+    @request = Request.new(new_request_params)
 
     respond_to do |format|
       if @request.save
@@ -69,6 +76,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:message)
+      params.require(:request).permit(:message, :post_id, :user_id)
     end
 end
