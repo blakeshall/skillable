@@ -10,6 +10,7 @@
     <%= f.text_field :last_name %>
   </div>
 
+  <%= image_tag @user.avatar.url, size: "250x250" %>
   <div class="field">
     <%= f.label :avatar %><br />
     <%= f.file_field :avatar %>
