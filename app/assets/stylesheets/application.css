@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.bg-skillable-green {
+    background-color: #AA3939;
+}
